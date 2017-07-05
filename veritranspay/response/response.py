@@ -97,17 +97,47 @@ class IndomaretChargeResponse(ChargeResponseBase):
 
 
 class CimbsChargeResponse(ChargeResponseBase):
-    # not implemented -- not documented
+    """
+    Cimb charge response when using payment_types is chimb clicks.
+
+    http://api-docs.midtrans.com/#cimb-clicks
+    """
     def __init__(self, *args, **kwargs):
         super(CimbsChargeResponse, self).__init__(*args, **kwargs)
         self.redirect_url = kwargs.get('redirect_url', None)
 
 
 class MandiriChargeResponse(ChargeResponseBase):
-    # not implemented -- not documented
+    """
+    Mandiri charge response when using payment_types is mandiri click pay.
+
+    http://api-docs.midtrans.com/#mandiri-clickpay
+    """
     def __init__(self, *args, **kwargs):
         super(MandiriChargeResponse, self).__init__(*args, **kwargs)
         self.masked_card = kwargs.get('masked_card', None)
+
+
+class BCAKlikPayChargeResponse(ChargeResponseBase):
+    """
+    BCA charge response when using payment_types is bca_klikpay.
+
+    http://api-docs.midtrans.com/#bca-klikpay
+    """
+    def __init__(self, *args, **kwargs):
+        super(BCAKlikPayChargeResponse, self).__init__(*args, **kwargs)
+        self.redirect_url = kwargs.get("redirect_url", None)
+
+
+class KlikBCAChargeResponse(ChargeResponseBase):
+    """
+    BCA charge response when using payment_types is bca_klikbca.
+
+    http://api-docs.midtrans.com/#klikbca
+    """
+    def __init__(self, *args, **kwargs):
+        super(KlikBCAChargeResponse, self).__init__(*args, **kwargs)
+        self.approval_code = kwargs.get("approval_code", None)
 
 
 class VirtualAccountChargeResponse(ChargeResponseBase):
@@ -209,9 +239,13 @@ def build_charge_response(request, *args, **kwargs):
     elif isinstance(request.charge_type, payment_types.BriEpay):
         return EpayBriChargeResponse(*args, **kwargs)
     elif isinstance(request.charge_type, payment_types.CimbClicks):
-        raise NotImplementedError("CimbClicks not yet supported.")
+        return CimbsChargeResponse(*args, **kwargs)
     elif isinstance(request.charge_type, payment_types.MandiriClickpay):
-        raise NotImplementedError("MandiriClickpay not yet supported")
+        return MandiriChargeResponse(*args, **kwargs)
+    elif isinstance(request.charge_type, payment_types.BCAKlikPay):
+        return BCAKlikPayChargeResponse(*args, **kwargs)
+    elif isinstance(request.charge_type, payment_types.KlikBCA):
+        return KlikBCAChargeResponse(*args, **kwargs)
     else:
         return ChargeResponseBase(*args, **kwargs)
 
