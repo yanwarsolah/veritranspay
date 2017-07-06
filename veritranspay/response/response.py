@@ -13,11 +13,11 @@ the documentation at:
 - http://docs.veritrans.co.id/sandbox/charge.html
 '''
 __all__ = ['ResponseBase', 'ChargeResponseBase', 'CreditCardChargeResponse',
-           'IndomaretChargeResponse', 'CimbsChargeResponse', 'MandiriChargeResponse',
-           'StatusResponse', 'CancelResponse', 'VirtualAccountChargeResponse',
+           'IndomaretChargeResponse', 'CimbsChargeResponse', 'MandiriChargeResponse', 'BCAKlikPayChargeResponse',
+           'KlikBCAChargeResponse', 'StatusResponse', 'CancelResponse', 'VirtualAccountChargeResponse',
            'VirtualAccountPermataChargeResponse', 'VirtualAccountBcaChargeResponse', 'VirtualAccountBniChargeResponse',
            'VirtualAccountMandiriChargeResponse', 'EpayBriChargeResponse',
-           'build_charge_response', 'ApproveResponse', ]
+           'build_charge_response', 'ApproveResponse',]
 
 from veritranspay import mixins, helpers, payment_types
 
@@ -137,7 +137,7 @@ class KlikBCAChargeResponse(ChargeResponseBase):
     """
     def __init__(self, *args, **kwargs):
         super(KlikBCAChargeResponse, self).__init__(*args, **kwargs)
-        self.approval_code = kwargs.get("approval_code", None)
+        self.redirect_url = kwargs.get("redirect_url", None)
 
 
 class VirtualAccountChargeResponse(ChargeResponseBase):

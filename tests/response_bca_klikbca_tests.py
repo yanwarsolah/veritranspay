@@ -3,7 +3,7 @@ from unittest import TestCase
 from veritranspay.response.response import EpayBriChargeResponse
 
 
-class EpayBriChargeResponseTests(TestCase):
+class EpayBriChargeResponseTests_v0_9(TestCase):
     """
     https://api-docs.midtrans.com/#epay-bri
     """

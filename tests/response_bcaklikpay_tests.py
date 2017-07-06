@@ -3,7 +3,7 @@ from unittest import TestCase
 from veritranspay.response import BCAKlikPayChargeResponse
 
 
-class BCAKlikPayChargeResponseTests(TestCase):
+class BCAKlikPayChargeResponseTests_v0_9(TestCase):
 
     def setUp(self):
         # example response data from

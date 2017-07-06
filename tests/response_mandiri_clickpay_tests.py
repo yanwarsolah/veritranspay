@@ -3,7 +3,7 @@ from unittest import TestCase
 from veritranspay.response import MandiriChargeResponse
 
 
-class MandiriChargeResponseTests(TestCase):
+class MandiriChargeResponseTests_v0_9(TestCase):
 
     def setUp(self):
         # example response data from

@@ -56,9 +56,9 @@ class InternetBankingTests_Base(object):
              in expected['item_details']]
 
 
-class MandiriClickpayTests_v0_4(InternetBankingTests_Base, unittest.TestCase):
+class MandiriClickpayTests_v0_9(InternetBankingTests_Base, unittest.TestCase):
 
-    VERSION = '0.8'
+    VERSION = '0.9'
 
     def test_mandiri_click_pay_charge(self):
         # 1: Create a sandbox gateway
@@ -88,9 +88,9 @@ class MandiriClickpayTests_v0_4(InternetBankingTests_Base, unittest.TestCase):
         self.assertEqual(status.SUCCESS, resp.status_code)
 
 
-class CimbClicksTests_v0_4(InternetBankingTests_Base, unittest.TestCase):
+class CimbClicksTests_v0_9(InternetBankingTests_Base, unittest.TestCase):
 
-    VERSION = '0.8'
+    VERSION = '0.9'
 
     def test_cimb_clicks_charge(self):
         # 1: Create a sandbox gateway
@@ -116,9 +116,9 @@ class CimbClicksTests_v0_4(InternetBankingTests_Base, unittest.TestCase):
         self.assertEqual(status.CHALLENGE, resp.status_code)
 
 
-class BCAKlikPayTests_v0_4(InternetBankingTests_Base, unittest.TestCase):
+class BCAKlikPayTests_v0_9(InternetBankingTests_Base, unittest.TestCase):
 
-    VERSION = '0.8'
+    VERSION = '0.9'
 
     def test_bcaklikpay_charger(self):
         # 1: Create a sandbox gateway
@@ -143,9 +143,9 @@ class BCAKlikPayTests_v0_4(InternetBankingTests_Base, unittest.TestCase):
         self.assertEqual(status.CHALLENGE, resp.status_code)
 
 
-class KlikBCATests_v0_4(InternetBankingTests_Base, unittest.TestCase):
+class KlikBCATests_v0_9(InternetBankingTests_Base, unittest.TestCase):
 
-    VERSION = '0.8'
+    VERSION = '0.9'
 
     def test_klikbca_charger(self):
         # 1: Create a sandbox gateway

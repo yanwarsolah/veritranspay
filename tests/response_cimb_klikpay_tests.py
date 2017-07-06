@@ -3,7 +3,7 @@ from unittest import TestCase
 from veritranspay.response import CimbsChargeResponse
 
 
-class CimbsChargeResponseTests(TestCase):
+class CimbsChargeResponseTests_v0_9(TestCase):
 
     def setUp(self):
         # example response data from

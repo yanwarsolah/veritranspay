@@ -3,13 +3,11 @@ from unittest import TestCase
 from veritranspay.response import KlikBCAChargeResponse
 
 
-class KlikBCAChargeResponseTests(TestCase):
-
-    VERSION = "0.8"
+class KlikBCAChargeResponseTests_v0_9(TestCase):
 
     def setUp(self):
         # example response data from
-        # http://docs.veritrans.co.id/en/vtdirect/integration_indomrt.html#response-transaction-indomrt
+        # --
         self.response_json = {
             "status_code": "201",
             "status_message": "Success, KlikBCA transaction is successful",
